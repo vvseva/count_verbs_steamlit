@@ -10,7 +10,7 @@ import spacy
 # ---------------------------------------------------------
 
 # Page configuration
-st.set_page_config(page_title="Classic Mac OS Verb Counter (RU)", page_icon="🍎")
+st.set_page_config(page_title="Считай глаголы", page_icon="🍎")
 
 # --- Custom CSS for Classic Mac OS System 1 Aesthetic ---
 # We use st.markdown with unsafe_allow_html to inject CSS to style Streamlit elements.
@@ -150,13 +150,13 @@ text_input = st.text_area(
 # Button to trigger the counting (Styled by CSS above)
 if st.button("Count Verbs / Считать"):
     if not text_input.strip():
-        st.warning("⚠️ Пожалуйста, введите текст для анализа. (Please enter text to analyze.)")
+        st.warning("Ради бога, введите текст для анализа. (Please enter text to analyze.)")
     elif nlp_ru:
         # Perform the verb count
         num_verbs = count_verbs(text_input, nlp_ru)
         
         # Display the result using st.metric, which is styled into a large, simple box.
-        st.metric(label="Количество глаголов (Verbs Found)", value=num_verbs)
+        st.metric(label="Глаголов", value=num_verbs)
         
         # Optional: Show a few examples of found verbs
         # doc = nlp_ru(text_input)
